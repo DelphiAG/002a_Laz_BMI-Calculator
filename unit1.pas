@@ -13,16 +13,20 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
+    //DekoLabel
     MassLabel: TLabel;
     HeightLabel: TLabel;
     BMITextLabel1: TLabel;
-    BMILabel1: TLabel;
-    BMILabel2: TLabel;
-    MassEdit: TFloatSpinEdit;
-    HeightEdit: TFloatSpinEdit;
+    BMILabel1: TLabel; //Ausgabe-Label für BMI
+    BMILabel2: TLabel; //Ausgabe-Kabel für Klassifizierung
+    MassEdit: TFloatSpinEdit; //Hier wird die Masse angegeben
+    HeightEdit: TFloatSpinEdit; //Hier wird die Koerpergroesse angegeben
     procedure BMIValuesChanged(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
+         //Berechnet den BMI aus der Masse m (in kg) und der groesse h (in m)
     function calcBMI(m : real; h: real):real;
+         //Uebersetzt den BMI in Klassifizierungen von Untergewichtig bis Adipositas III
     function BMItoText(BMI:real):String;
   public
 
@@ -36,7 +40,7 @@ implementation
 {$R *.lfm}
 
 { TForm1 }
-
+    //Berechnet den BMI bei Änderung der eingegebenen Werte
 procedure TForm1.BMIValuesChanged(Sender: TObject);
 var BMI:real;
 begin
@@ -45,8 +49,13 @@ begin
   BMILabel2.Caption := 'Damit zählst du als ' + BMItoText(BMI)+ '  !';
 end;
 
-function TForm1.calcBMI(m: real; h: real): real;
+procedure TForm1.FormCreate(Sender: TObject);
 begin
+  BMIValuesChanged(Form1);
+end;
+
+function TForm1.calcBMI(m: real; h: real): real;
+begin  // BMI Berechnung
    result := m / (h * h);
 end;
 
