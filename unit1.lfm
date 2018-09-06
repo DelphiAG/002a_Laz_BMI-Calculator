@@ -1,0 +1,80 @@
+object Form1: TForm1
+  Left = 483
+  Height = 186
+  Top = 355
+  Width = 403
+  Caption = 'BMI - Rechner'
+  ClientHeight = 186
+  ClientWidth = 403
+  DesignTimePPI = 120
+  LCLVersion = '1.8.4.0'
+  object MassEdit: TFloatSpinEdit
+    Left = 128
+    Height = 28
+    Top = 24
+    Width = 259
+    Anchors = [akTop, akLeft, akRight]
+    Increment = 5
+    MaxValue = 2000
+    MinValue = 0
+    OnChange = BMIValuesChanged
+    TabOrder = 0
+    Value = 50
+  end
+  object HeightEdit: TFloatSpinEdit
+    Left = 128
+    Height = 28
+    Top = 64
+    Width = 259
+    Anchors = [akTop, akLeft, akRight]
+    Increment = 0.05
+    MaxValue = 5
+    MinValue = 0
+    OnChange = BMIValuesChanged
+    TabOrder = 1
+    Value = 1.7
+  end
+  object MassLabel: TLabel
+    Left = 16
+    Height = 20
+    Top = 24
+    Width = 91
+    Caption = 'Deine Masse: '
+    ParentColor = False
+  end
+  object HeightLabel: TLabel
+    Left = 16
+    Height = 20
+    Top = 64
+    Width = 98
+    Caption = 'Deine Groesse:'
+    ParentColor = False
+  end
+  object BMITextLabel1: TLabel
+    Left = 16
+    Height = 20
+    Top = 112
+    Width = 129
+    Anchors = [akLeft, akBottom]
+    Caption = 'Dein BMI betraegt: '
+    ParentColor = False
+  end
+  object BMILabel1: TLabel
+    Left = 383
+    Height = 20
+    Top = 112
+    Width = 4
+    Anchors = [akRight, akBottom]
+    Caption = ' '
+    ParentColor = False
+  end
+  object BMILabel2: TLabel
+    Left = 383
+    Height = 20
+    Top = 150
+    Width = 4
+    Anchors = [akRight, akBottom]
+    Caption = ' '
+    ParentColor = False
+  end
+end
